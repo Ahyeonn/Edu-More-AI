@@ -17,7 +17,7 @@ hands = mp_hands.Hands(
 )
 
 # 저장할 데이터 폴더 만들기
-out_dir = Path("./resources")
+out_dir = Path("./data/raws")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 # 저장할 파일 만들기
@@ -74,7 +74,7 @@ while True:
             # # 원 그리기(src - 중심점 - 박지름 - 색상(cv2라 BGR형태로 만들어준다) - 두께
             # cv2.circle(frame, (point_x, point_y), 5, (0, 0, 255 ), 2) 
 
-        # (주먹 = 일시 정지/다시 시작) 1번 누르면 resources/hand_pause_data.csv로 저장
+        # (주먹 = 일시 정지/다시 시작) 1번 누르면 data/hand_pause_data.csv로 저장
         if key == ord("1"):
             # 정답 라벨 추가
             landmarks.append("pause")
@@ -84,7 +84,7 @@ while True:
                 writer.writerow(landmarks)
                 cv2.putText(frame, "Save Pause", (10, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255,0,0), 2)
         
-        # (가리키기 = 선택) 2번 누르면 resources/hand_select_data.csv로 저장
+        # (가리키기 = 선택) 2번 누르면 data/hand_select_data.csv로 저장
         elif key == ord("2"):
             # 정답 라벨 추가
             landmarks.append("select")
@@ -94,7 +94,7 @@ while True:
                 writer.writerow(landmarks)
                 cv2.putText(frame, "Save Select", (10, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255,0,0), 2)
         
-        # (손펴기 = 종료) 3번 누르면 resources/hand_stop_data.csv로 저장
+        # (손펴기 = 종료) 3번 누르면 data/hand_stop_data.csv로 저장
         elif key == ord("3"):
             # 정답 라벨 추가
             landmarks.append("stop")
