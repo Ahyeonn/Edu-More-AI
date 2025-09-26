@@ -67,12 +67,12 @@ while True:
             # 좌표 뽑아오기
             landmarks.extend([landmark.x, landmark.y, landmark.z])
 
-            # # 좌표 데이터 모으기
-            # point_x = int(landmark.x * width)
-            # point_y = int(landmark.y * height)
+            # 좌표 데이터 모으기
+            point_x = int(landmark.x * width)
+            point_y = int(landmark.y * height)
 
-            # # 원 그리기(src - 중심점 - 박지름 - 색상(cv2라 BGR형태로 만들어준다) - 두께
-            # cv2.circle(frame, (point_x, point_y), 5, (0, 0, 255 ), 2) 
+            # 원 그리기(src - 중심점 - 박지름 - 색상(cv2라 BGR형태로 만들어준다) - 두께
+            cv2.circle(frame, (point_x, point_y), 5, (0, 0, 255 ), 2) 
 
         # (주먹 = 일시 정지/다시 시작) 1번 누르면 data/hand_pause_data.csv로 저장
         if key == ord("1"):
