@@ -5,8 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "cv>=1.0.0",
     "jupyter>=1.1.1",
+    "lightgbm>=4.6.0",
     "mediapipe>=0.10.21",
     "opencv-python>=4.11.0.86",
     "pandas>=2.3.2",
+    "scikit-learn>=1.7.2",
 ]
