@@ -7,7 +7,7 @@ import os
 import joblib
 import json, asyncio, threading
 
-from LLM_STT import transcribe_audio, ask_gpt
+from edumore_llm_fastapi import transcribe_audio, ask_gpt
 
 app = FastAPI()
 
