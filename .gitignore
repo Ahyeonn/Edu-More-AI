@@ -3,3 +3,5 @@
 
 data/
 audios/
+
+__pycache__/
