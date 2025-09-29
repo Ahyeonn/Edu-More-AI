@@ -5,11 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "asyncio>=4.0.0",
     "cv>=1.0.0",
+    "fastapi[all]>=0.117.1",
     "jupyter>=1.1.1",
     "lightgbm>=4.6.0",
     "mediapipe>=0.10.21",
+    "openai>=1.109.1",
     "opencv-python>=4.11.0.86",
     "pandas>=2.3.2",
+    "python-dotenv>=1.1.1",
     "scikit-learn>=1.7.2",
+    "uvicorn>=0.37.0",
+    "websocket-client>=1.8.0",
+    "websockets>=15.0.1",
 ]

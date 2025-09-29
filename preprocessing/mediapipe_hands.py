@@ -23,8 +23,9 @@ out_dir.mkdir(parents=True, exist_ok=True)
 # 저장할 파일 만들기
 file_names = {
     "pause": "hand_pause_data.csv",
-    "select": "hand_select_data.csv",
+    "move": "hand_move_data.csv",
     "stop": "hand_stop_data.csv",
+    "select": "hand_select_data.csv",
 }
 
 file_paths = {}
@@ -94,17 +95,17 @@ while True:
                     2,
                 )
 
-        # (가리키기 = 선택) 2번 누르면 data/hand_select_data.csv로 저장
+        # (이동 = 선택) 2번 누르면 data/hand_select_data.csv로 저장
         elif key == ord("2"):
             # 정답 라벨 추가
-            landmarks.append("select")
+            landmarks.append("move")
             # 데이터 추가
-            with open(file_paths["select"], "a", newline="") as file:
+            with open(file_paths["move"], "a", newline="") as file:
                 writer = csv.writer(file)
                 writer.writerow(landmarks)
                 cv2.putText(
                     frame,
-                    "Save Select",
+                    "Save move",
                     (10, 50),
                     cv2.FONT_HERSHEY_COMPLEX,
                     1,
@@ -123,6 +124,23 @@ while True:
                 cv2.putText(
                     frame,
                     "Save Stop",
+                    (10, 50),
+                    cv2.FONT_HERSHEY_COMPLEX,
+                    1,
+                    (255, 0, 0),
+                    2,
+                )
+        
+        elif key == ord("4"):
+            # 정답 라벨 추가
+            landmarks.append("select")
+            # 데이터 추가
+            with open(file_paths["select"], "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow(landmarks)
+                cv2.putText(
+                    frame,
+                    "Save Select",
                     (10, 50),
                     cv2.FONT_HERSHEY_COMPLEX,
                     1,

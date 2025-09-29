@@ -19,7 +19,7 @@ hands = mp_hands.Hands(
 
 # 모델 불러오기
 model = joblib.load("C:/Edu-More_AI/training/models/hands.pkl")
-labels = ["pause", "select", "stop"]
+labels = ["pause", "move", "stop", "select"]
 # 웹캠 연결
 vcap = cv2.VideoCapture(0)
 
@@ -29,8 +29,8 @@ while True:
         print("카메라가 작동하지 않습니다.")
         sys.exit()
 
-    # 좌우 반전
-    frame = cv2.flip(frame, 1)
+    # # 좌우 반전
+    # frame = cv2.flip(frame, 1)
 
     ###### Hands Landmark 설정하기 ######
     # 손 그리기 준비
