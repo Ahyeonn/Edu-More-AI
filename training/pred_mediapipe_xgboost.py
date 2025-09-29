@@ -18,8 +18,10 @@ hands = mp_hands.Hands(
 )
 
 # 모델 불러오기
-model = joblib.load("C:/Edu-More_AI/training/models/hands.pkl")
-labels = ["pause", "move", "stop", "select"]
+# model = joblib.load("C:/Edu-More_AI/training/models/hands.pkl") # LightGBM
+# labels = ["pause", "move", "stop", "select"]
+model = joblib.load("C:/Edu-More-AI/training/.hands.pkl")  # xgboost
+labels = ["pause", "select", "stop"]
 # 웹캠 연결
 vcap = cv2.VideoCapture(0)
 

@@ -1,5 +1,5 @@
 [project]
-name = "edu-more"
+name = "edu-more-ai"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,6 +8,7 @@ dependencies = [
     "asyncio>=4.0.0",
     "cv>=1.0.0",
     "fastapi[all]>=0.117.1",
+    "joblib>=1.5.2",
     "jupyter>=1.1.1",
     "lightgbm>=4.6.0",
     "mediapipe>=0.10.21",
@@ -19,4 +20,5 @@ dependencies = [
     "uvicorn>=0.37.0",
     "websocket-client>=1.8.0",
     "websockets>=15.0.1",
+    "uvicorn>=0.37.0",
 ]

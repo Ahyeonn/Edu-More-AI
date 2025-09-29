@@ -23,9 +23,8 @@ out_dir.mkdir(parents=True, exist_ok=True)
 # 저장할 파일 만들기
 file_names = {
     "pause": "hand_pause_data.csv",
-    "move": "hand_move_data.csv",
-    "stop": "hand_stop_data.csv",
     "select": "hand_select_data.csv",
+    "stop": "hand_stop_data.csv",
 }
 
 file_paths = {}
@@ -74,8 +73,8 @@ while True:
             point_x = int(landmark.x * width)
             point_y = int(landmark.y * height)
 
-            # 원 그리기(src - 중심점 - 박지름 - 색상(cv2라 BGR형태로 만들어준다) - 두께
-            cv2.circle(frame, (point_x, point_y), 5, (0, 0, 255), 2)
+            # # 원 그리기(src - 중심점 - 박지름 - 색상(cv2라 BGR형태로 만들어준다) - 두께
+            # cv2.circle(frame, (point_x, point_y), 5, (0, 0, 255 ), 2) 
 
         # (주먹 = 일시 정지/다시 시작) 1번 누르면 data/hand_pause_data.csv로 저장
         if key == ord("1"):
@@ -95,7 +94,7 @@ while True:
                     2,
                 )
 
-        # (이동 = 선택) 2번 누르면 data/hand_select_data.csv로 저장
+        # (가리키기 = 선택) 2번 누르면 data/hand_select_data.csv로 저장
         elif key == ord("2"):
             # 정답 라벨 추가
             landmarks.append("move")
@@ -105,7 +104,7 @@ while True:
                 writer.writerow(landmarks)
                 cv2.putText(
                     frame,
-                    "Save move",
+                    "Save Select",
                     (10, 50),
                     cv2.FONT_HERSHEY_COMPLEX,
                     1,
@@ -148,8 +147,26 @@ while True:
                     2,
                 )
 
+        # (오케이 싸인 = 선택) 4번 누르면 data/hand_select_data.csv로 저장
+        elif key == ord("4"):
+            # 정답 라벨 추가
+            landmarks.append("select")
+            # 데이터 추가
+            with open(file_paths["select"], "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow(landmarks)
+                cv2.putText(
+                    frame,
+                    "Save Select",
+                    (10, 50),
+                    cv2.FONT_HERSHEY_COMPLEX,
+                    1,
+                    (255, 0, 0),
+                    2,
+                )
+
     # 화면 띄우기
-    cv2.imshow("webcam - hand detection", frame)
+    cv2.imshow("웹캠이 켜졌습니다.", frame)
 
     # 꺼지는 조건
     key = cv2.waitKey(1)
